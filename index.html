@@ -444,13 +444,16 @@
                             href="tel:+2348167901719">+234 816 790 1719</a></p>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2024 Stephen Akintayo University. All rights reserved.</p>
+                    <p>&copy; <span id="currentYear"></span> Stephen Akintayo University. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
