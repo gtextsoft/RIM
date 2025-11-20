@@ -3,9 +3,11 @@
     --color-bg-alt: #141414;
     --color-text: #f0f0f0;
     --color-text-muted: #a0a0a0;
-    --color-primary: #d4af37; /* Gold */
+    --color-primary: #d4af37;
+    /* Gold */
     --color-primary-hover: #b5952f;
-    --color-accent: #1e2a38; /* Deep Blue */
+    --color-accent: #1e2a38;
+    /* Deep Blue */
     --font-main: 'Outfit', sans-serif;
     --font-heading: 'Playfair Display', serif;
     --spacing-container: 1200px;
@@ -26,7 +28,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     color: #fff;
     margin-bottom: 1rem;
@@ -54,7 +61,9 @@ img {
     padding: 0 20px;
 }
 
-.text-center { text-align: center; }
+.text-center {
+    text-align: center;
+}
 
 .gold-text {
     color: var(--color-primary);
@@ -107,7 +116,7 @@ img {
     width: 100%;
     top: 0;
     z-index: 100;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .nav {
@@ -195,15 +204,53 @@ img {
     margin-top: 10px;
 }
 
+.location-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.location-badge:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
 .floating-image {
     animation: float 6s ease-in-out infinite;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* Wealth System */
@@ -300,7 +347,7 @@ img {
     background: #141414;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
@@ -456,5 +503,9 @@ img {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .location-badges {
+        justify-content: center;
     }
 }
