@@ -428,6 +428,29 @@ img {
     border-color: var(--color-primary);
 }
 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #fff;
+    font-family: var(--font-main);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-group select option {
+    background: #0a0a0a;
+    color: #fff;
+    padding: 10px;
+}
+
 .privacy-text {
     text-align: center;
     font-size: 0.8rem;
