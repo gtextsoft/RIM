@@ -55,7 +55,7 @@
           <h1 class="hero-title">Learn the 12 Major Types of Real Estate <span class="hero-title-accent">and How to Raise Investment</span></h1>
           <div class="hero-accent-bar" aria-hidden="true"></div>
           <p class="hero-subtitle">Join <b>Dr. Stephen Akintayo</b>, Founder of SACI Holdings, for a structured 6‑week virtual masterclass designed to help you understand the real estate industry, discover profitable sectors, and learn how to raise investment for your real estate business.</p>
-          <a class="hero-cta" href="#contact">REGISTER NOW</a>
+          <a class="hero-cta" href="#" data-register>REGISTER NOW</a>
         </main>
       </div>
 
@@ -221,7 +221,7 @@
 
 <div class="learn-cta">
   <p class="learn-bonus"><b>Bonus:</b> Learn how to raise investment for your real estate business.</p>
-  <a class="btn btn-particle" href="#cta">SECURE YOUR SPOT<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l7.5 7.5"/><path d="M3 21l3-9 9-3-3 9z"/><path d="M12 2v4"/><path d="M2 12h4"/></svg></a>
+  <a class="btn btn-particle" href="#" data-register>SECURE YOUR SPOT<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l7.5 7.5"/><path d="M3 21l3-9 9-3-3 9z"/><path d="M12 2v4"/><path d="M2 12h4"/></svg></a>
 </div>
 </section>
 
@@ -483,7 +483,7 @@
       </div>
     </div>
 
-    <a class="btn cta-btn" href="#contact">
+    <a class="btn cta-btn" href="#" data-register>
       REGISTER NOW
       <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l7.5 7.5"/><path d="M3 21l3-9 9-3-3 9z"/><path d="M12 2v4"/><path d="M2 12h4"/></svg>
     </a>
@@ -545,6 +545,81 @@
     <p>A program by <strong>Dr. Stephen Akintayo</strong> · SACI Holdings</p>
   </div>
 </footer>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- Default state -->
+    <div class="modal-body" id="modalBody">
+      <div class="modal-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <h2 class="modal-title" id="modalTitle">Reserve Your Spot</h2>
+      <p class="modal-subtitle">Join the 6‑week Real Estate Business Masterclass by Dr. Stephen Akintayo. Fill in your details below.</p>
+
+      <form class="register-form" id="registerForm" action="https://formspree.io/f/xlgpoevp" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reg-firstname">First Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="reg-firstname" name="first_name" placeholder="e.g. John" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="reg-lastname">Last Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="reg-lastname" name="last_name" placeholder="e.g. Doe" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email">Email Address <span aria-hidden="true">*</span></label>
+          <input type="email" id="reg-email" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-phone">Phone Number <span aria-hidden="true">*</span></label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="+234 800 000 0000" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-occupation">Occupation / Role</label>
+          <input type="text" id="reg-occupation" name="occupation" placeholder="e.g. Entrepreneur, Realtor, Investor">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-heard">How did you hear about us?</label>
+          <select id="reg-heard" name="source">
+            <option value="" disabled selected>Select an option</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Friend / Referral">Friend / Referral</option>
+            <option value="Email">Email</option>
+            <option value="Website">Website</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="form-submit" id="formSubmitBtn">
+          <span class="submit-label">SECURE MY SPOT</span>
+          <span class="submit-spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-note">By registering, you agree to be contacted about this programme.</p>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="modal-success" id="modalSuccess" hidden>
+      <div class="success-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+      </div>
+      <h2 class="modal-title">You're Registered!</h2>
+      <p class="modal-subtitle">Thank you for signing up. We'll be in touch with further details about the masterclass very soon.</p>
+      <button class="btn cta-btn" id="modalSuccessClose" style="margin-top:1.5rem">Close</button>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 

@@ -173,6 +173,100 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   });
 });
 
+/* ── Registration Modal ── */
+(function () {
+  const overlay     = document.getElementById('registerModal');
+  const closeBtn    = document.getElementById('modalClose');
+  const successPane = document.getElementById('modalSuccess');
+  const bodyPane    = document.getElementById('modalBody');
+  const form        = document.getElementById('registerForm');
+  const submitBtn   = document.getElementById('formSubmitBtn');
+  const successClose = document.getElementById('modalSuccessClose');
+
+  function openModal() {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    // Reset to form view each time
+    bodyPane.hidden   = false;
+    successPane.hidden = true;
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // Open on any [data-register] click
+  document.querySelectorAll('[data-register]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  // Close button & backdrop click
+  closeBtn.addEventListener('click', closeModal);
+  successClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+
+  // Form submission via fetch (Formspree)
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Basic required-field validation
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(function (field) {
+      field.classList.remove('is-error');
+      if (!field.value.trim()) {
+        field.classList.add('is-error');
+        valid = false;
+      }
+    });
+    if (!valid) return;
+
+    // Loading state
+    submitBtn.classList.add('is-loading');
+    submitBtn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res  = await fetch(form.action, {
+        method:  'POST',
+        body:    data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        bodyPane.hidden    = true;
+        successPane.hidden = false;
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => ({}));
+        alert(json.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      submitBtn.classList.remove('is-loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Clear error state on input
+  form.querySelectorAll('input, select').forEach(function (field) {
+    field.addEventListener('input', function () {
+      field.classList.remove('is-error');
+    });
+  });
+}());
+
 /* FAQ accordion */
 const faqItems = document.querySelectorAll('.faq-item');
 
