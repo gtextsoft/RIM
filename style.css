@@ -41,7 +41,7 @@ body {
 }
 
 p {
-  text-align: center;
+  text-align: left;
 }
 
 /* ===== Retro grid background ===== */
@@ -93,6 +93,35 @@ p {
   max-width: 1040px;
   margin: auto;
   padding: 64px 24px;
+}
+
+/* Alternating section backgrounds for visual rhythm */
+.benefits-section {
+  background: linear-gradient(180deg, #fdf8f2 0%, #faf6ef 100%);
+  border-top: 1px solid rgba(196, 30, 90, 0.07);
+  border-bottom: 1px solid rgba(196, 30, 90, 0.07);
+  max-width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.benefits-section > * {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonials-section {
+  background: linear-gradient(180deg, #f6f7fc 0%, #f1f3f8 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.testimonials-section > * {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ===== Hero Section 2 (redesign) ===== */
@@ -824,6 +853,7 @@ p {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  background-color: #1e1e2e;
 }
 
 @media (min-width: 768px) {
@@ -1344,11 +1374,14 @@ p {
 .pricing-card--highlight {
   background: linear-gradient(to bottom, #0c0c0c, #141414);
   border-color: #2a2a2a;
+  border-top: 3px solid var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(196, 30, 90, 0.18), 0 12px 40px -8px rgba(0, 0, 0, 0.45);
 }
 
 .pricing-card--highlight:hover {
-  border-color: #3d3d3d;
-  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-accent);
+  border-top-color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(196, 30, 90, 0.35), 0 16px 50px -8px rgba(196, 30, 90, 0.2);
 }
 
 .pricing-card-body {
