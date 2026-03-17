@@ -942,6 +942,25 @@ p {
   letter-spacing: -0.01em;
 }
 
+.learn-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2rem;
+  gap: 1.25rem;
+}
+
+.learn-bonus {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.learn-bonus b {
+  color: var(--color-accent);
+}
+
 /* ===== Benefits section ===== */
 .benefits-grid {
   display: grid;
