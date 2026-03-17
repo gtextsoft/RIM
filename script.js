@@ -1,3 +1,34 @@
+/* Mobile hamburger menu toggle */
+var navToggle = document.getElementById('navToggle');
+var mainNav = document.getElementById('mainNav');
+
+function closeNav() {
+  if (!navToggle || !mainNav) return;
+  navToggle.classList.remove('is-open');
+  mainNav.classList.remove('is-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', function () {
+    var isOpen = mainNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  /* Close when a nav link is clicked */
+  mainNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  /* Close when clicking outside */
+  document.addEventListener('click', function (e) {
+    if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+      closeNav();
+    }
+  });
+}
+
 /* Testimonials columns - duplicate content and set animation duration */
 const columns = document.querySelectorAll('.testimonials-column');
 
