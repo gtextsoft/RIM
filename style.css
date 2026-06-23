@@ -1355,6 +1355,12 @@ p {
   gap: 2rem;
 }
 
+.pricing-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
 /* Base card */
 .pricing-card {
   position: relative;
@@ -1422,13 +1428,13 @@ p {
   50% { box-shadow: 0 0 0 6px rgba(196,30,90,0); }
 }
 
-/* ── Countdown timer ── */
-.pricing-countdown-wrap {
+/* ── First 5 spots scarcity ── */
+.pricing-scarcity-wrap {
   text-align: center;
   margin-bottom: 2.75rem;
 }
 
-.pricing-countdown-label {
+.pricing-scarcity-label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-muted);
@@ -1438,27 +1444,48 @@ p {
   text-align: center;
 }
 
-.pricing-countdown {
+.pricing-scarcity {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   background: #0c0c0c;
   border: 1px solid #2a2a2a;
   border-radius: var(--radius-md);
-  padding: 1rem 1.75rem;
+  padding: 1.25rem 2rem 1.5rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 
-.countdown-block {
+.scarcity-spots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scarcity-spot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  border: 2px solid #444;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scarcity-spot.is-open {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(196, 30, 90, 0.45);
+}
+
+.scarcity-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 3.5rem;
 }
 
-.countdown-num {
+.scarcity-num {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-size: clamp(2rem, 6vw, 2.75rem);
   font-weight: 700;
   color: #fff;
   line-height: 1;
@@ -1466,28 +1493,13 @@ p {
   font-variant-numeric: tabular-nums;
 }
 
-.countdown-unit {
+.scarcity-unit {
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #666;
-  margin-top: 0.3rem;
-}
-
-.countdown-sep {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1;
-  margin-bottom: 1rem;
-  animation: blink-sep 1s step-end infinite;
-}
-
-@keyframes blink-sep {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
+  margin-top: 0.35rem;
 }
 
 /* ── Savings pill ── */
@@ -1760,12 +1772,6 @@ p {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.pricing-section.reveal .pricing-card:nth-child(2) {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
 .pricing-section.reveal.is-visible .pricing-header {
   opacity: 1;
   transform: translateY(0);
@@ -1776,12 +1782,6 @@ p {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.25s;
-}
-
-.pricing-section.reveal.is-visible .pricing-card:nth-child(2) {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.4s;
 }
 
 @media (max-width: 720px) {
