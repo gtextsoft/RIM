@@ -310,6 +310,7 @@ p {
 .hero-contact-item {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -332,6 +333,11 @@ p {
 
 .hero-contact-item a:hover {
   color: var(--color-accent);
+}
+
+.hero-contact-sep {
+  color: var(--color-text-muted);
+  opacity: 0.6;
 }
 
 /* Right: image with clip-path animation */
