@@ -267,7 +267,49 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   });
 }());
 
-/* FAQ accordion */
+/* Coupon code copy */
+document.querySelectorAll('[data-copy-coupon]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var code = 'RBM50';
+    var block = btn.closest('.coupon-block, .coupon-row') && btn.closest('.coupon-block') || btn.parentElement && btn.parentElement.parentElement;
+    var msg = block ? block.querySelector('[data-coupon-copied]') : null;
+    var label = btn.querySelector('.coupon-copy-label');
+
+    function showCopied() {
+      btn.classList.add('is-copied');
+      if (label) label.textContent = 'Copied!';
+      if (msg) msg.hidden = false;
+      setTimeout(function () {
+        btn.classList.remove('is-copied');
+        if (label) label.textContent = 'Copy';
+        if (msg) msg.hidden = true;
+      }, 2000);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(showCopied).catch(function () {
+        fallbackCopy(code);
+        showCopied();
+      });
+    } else {
+      fallbackCopy(code);
+      showCopied();
+    }
+  });
+});
+
+function fallbackCopy(text) {
+  var input = document.createElement('textarea');
+  input.value = text;
+  input.setAttribute('readonly', '');
+  input.style.position = 'absolute';
+  input.style.left = '-9999px';
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+}
+
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(function (item) {
