@@ -304,12 +304,10 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   var wantMuted = true;
   var advancing = false;
   var apiReady = false;
+  var booted = false;
   var pendingStart = null;
-
-  slides.forEach(function (slide, i) {
-    var iframe = slide.querySelector('iframe');
-    if (iframe) iframe.id = 'rbm-yt-' + i;
-  });
+  var useFallback = false;
+  var started = false;
 
   function setUnmuteVisible(slide, visible) {
     var btn = slide.querySelector('.video-unmute');
@@ -336,67 +334,117 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     player = null;
   }
 
-  function ensureIframe(slide, i) {
+  function clearMedia(slide) {
     var embed = slide.querySelector('.video-embed');
-    var iframe = slide.querySelector('iframe');
-    if (iframe) return iframe;
-    iframe = document.createElement('iframe');
-    iframe.id = 'rbm-yt-' + i;
-    iframe.title = slide.querySelector('.video-poster') ? 'Testimony video' : 'Video';
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-    embed.appendChild(iframe);
-    return iframe;
-  }
-
-  function resetInactiveSlides(active) {
-    slides.forEach(function (slide, i) {
-      if (i === active) return;
-      markPlaying(slide, false);
-      setUnmuteVisible(slide, true);
-      var embed = slide.querySelector('.video-embed');
-      var old = slide.querySelector('iframe');
-      if (old) old.remove();
-      // Fresh empty iframe shell for next YT.Player mount
-      var iframe = document.createElement('iframe');
-      iframe.id = 'rbm-yt-' + i;
-      iframe.title = 'Testimony video';
-      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-      // Place before unmute button
-      var btn = slide.querySelector('.video-unmute');
-      if (btn) embed.insertBefore(iframe, btn);
-      else embed.appendChild(iframe);
+    if (!embed) return;
+    Array.prototype.slice.call(embed.querySelectorAll('iframe, .video-host')).forEach(function (el) {
+      el.remove();
     });
   }
 
-  function createPlayer(slide, muted) {
+  function remountHost(slide, i) {
+    var embed = slide.querySelector('.video-embed');
+    clearMedia(slide);
+    var host = document.createElement('div');
+    host.className = 'video-host';
+    host.id = 'rbm-yt-' + i;
+    var btn = slide.querySelector('.video-unmute');
+    if (btn) embed.insertBefore(host, btn);
+    else embed.appendChild(host);
+    return host;
+  }
+
+  function embedUrl(id, muted) {
+    var params = [
+      'autoplay=1',
+      'mute=' + (muted ? '1' : '0'),
+      'playsinline=1',
+      'rel=0',
+      'modestbranding=1',
+      'controls=1'
+    ];
+    var origin = window.location.origin;
+    if (origin && /^https?:/.test(origin)) {
+      params.push('origin=' + encodeURIComponent(origin));
+      params.push('enablejsapi=1');
+    }
+    return 'https://www.youtube-nocookie.com/embed/' + id + '?' + params.join('&');
+  }
+
+  function createFallbackPlayer(slide, muted) {
     var id = slide.getAttribute('data-yt');
     var i = slides.indexOf(slide);
     if (!id || i < 0) return;
 
     destroyPlayer();
-    resetInactiveSlides(i);
-    ensureIframe(slide, i);
+    slides.forEach(function (s, n) {
+      if (n === i) return;
+      markPlaying(s, false);
+      setUnmuteVisible(s, true);
+      clearMedia(s);
+    });
+
+    wantMuted = muted !== false;
+    setUnmuteVisible(slide, wantMuted);
+    clearMedia(slide);
+
+    var iframe = document.createElement('iframe');
+    iframe.id = 'rbm-yt-' + i;
+    iframe.className = 'video-host';
+    iframe.title = 'Testimony video';
+    iframe.src = embedUrl(id, wantMuted);
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+    var embed = slide.querySelector('.video-embed');
+    var btn = slide.querySelector('.video-unmute');
+    if (btn) embed.insertBefore(iframe, btn);
+    else embed.appendChild(iframe);
+
+    // Reveal as soon as the iframe is in the DOM
+    markPlaying(slide, true);
+  }
+
+  function createApiPlayer(slide, muted) {
+    var id = slide.getAttribute('data-yt');
+    var i = slides.indexOf(slide);
+    if (!id || i < 0 || !window.YT || !window.YT.Player) {
+      createFallbackPlayer(slide, muted);
+      return;
+    }
+
+    destroyPlayer();
+    slides.forEach(function (s, n) {
+      if (n === i) return;
+      markPlaying(s, false);
+      setUnmuteVisible(s, true);
+      clearMedia(s);
+    });
+
+    remountHost(slide, i);
     markPlaying(slide, false);
     wantMuted = muted !== false;
     setUnmuteVisible(slide, wantMuted);
+
+    var vars = {
+      autoplay: 1,
+      mute: wantMuted ? 1 : 0,
+      controls: 1,
+      playsinline: 1,
+      rel: 0,
+      modestbranding: 1
+    };
+    var origin = window.location.origin;
+    if (origin && /^https?:/.test(origin)) {
+      vars.origin = origin;
+    }
 
     player = new YT.Player('rbm-yt-' + i, {
       videoId: id,
       width: '100%',
       height: '100%',
-      playerVars: {
-        autoplay: 1,
-        mute: wantMuted ? 1 : 0,
-        controls: 1,
-        playsinline: 1,
-        rel: 0,
-        modestbranding: 1,
-        origin: window.location.origin || undefined
-      },
+      playerVars: vars,
       events: {
         onReady: function (e) {
           markPlaying(slide, true);
@@ -406,11 +454,14 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
             e.target.playVideo();
           } catch (err) { /* ignore */ }
         },
+        onError: function () {
+          useFallback = true;
+          createFallbackPlayer(slide, wantMuted);
+        },
         onStateChange: function (e) {
           if (e.data === YT.PlayerState.PLAYING) {
             markPlaying(slide, true);
           }
-          // 0 = ENDED — advance to next testimony
           if (e.data === YT.PlayerState.ENDED) {
             if (advancing) return;
             advancing = true;
@@ -430,8 +481,20 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     });
   }
 
+  function createPlayer(slide, muted) {
+    if (useFallback || !apiReady) {
+      createFallbackPlayer(slide, muted);
+      return;
+    }
+    createApiPlayer(slide, muted);
+  }
+
   function loadPlayer(slide, muted) {
-    if (!apiReady) {
+    if (!started) {
+      pendingStart = { slide: slide, muted: muted };
+      return;
+    }
+    if (!useFallback && !apiReady) {
       pendingStart = { slide: slide, muted: muted };
       return;
     }
@@ -439,6 +502,7 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   }
 
   function goTo(i, keepSound) {
+    if (!started) startPlayback();
     index = (i + slides.length) % slides.length;
     track.style.transform = 'translateX(-' + (index * 100) + '%)';
     slides.forEach(function (s, n) {
@@ -454,16 +518,18 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     loadPlayer(slides[index], keepSound ? false : true);
   }
 
-  slides.forEach(function (_, i) {
-    var dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'video-dot' + (i === 0 ? ' is-active' : '');
-    dot.setAttribute('role', 'tab');
-    dot.setAttribute('aria-label', 'Go to video ' + (i + 1) + ' of ' + slides.length);
-    dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-    dot.addEventListener('click', function () { goTo(i); });
-    dotsWrap.appendChild(dot);
-  });
+  if (dotsWrap) {
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'video-dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Go to video ' + (i + 1) + ' of ' + slides.length);
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+  }
 
   if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
   if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
@@ -473,6 +539,7 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     if (!btn) return;
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
+      if (!started) startPlayback();
       if (i !== index) {
         goTo(i, true);
         return;
@@ -487,6 +554,7 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
           return;
         }
       } catch (err) { /* fall through */ }
+      // Fallback iframes cannot unmute via API — reload with sound
       loadPlayer(slide, false);
     });
   });
@@ -532,35 +600,75 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
   });
 
-  function boot() {
-    apiReady = true;
+  function flushPending() {
     if (pendingStart) {
       createPlayer(pendingStart.slide, pendingStart.muted);
       pendingStart = null;
-    } else {
-      goTo(0);
+    } else if (started) {
+      goTo(index, !wantMuted);
     }
+  }
+
+  function bootApi() {
+    if (booted) return;
+    booted = true;
+    apiReady = !!(window.YT && window.YT.Player);
+    if (!apiReady) useFallback = true;
+    flushPending();
+  }
+
+  function startPlayback() {
+    if (started) return;
+    started = true;
+    if (!pendingStart) pendingStart = { slide: slides[index], muted: true };
+    if (apiReady || useFallback) flushPending();
   }
 
   var prevReady = window.onYouTubeIframeAPIReady;
   window.onYouTubeIframeAPIReady = function () {
     if (typeof prevReady === 'function') prevReady();
-    boot();
+    bootApi();
   };
 
   if (window.YT && window.YT.Player) {
-    boot();
+    bootApi();
   } else if (!document.getElementById('rbm-youtube-api')) {
     var tag = document.createElement('script');
     tag.id = 'rbm-youtube-api';
     tag.src = 'https://www.youtube.com/iframe_api';
+    tag.onerror = function () {
+      useFallback = true;
+      bootApi();
+    };
     document.head.appendChild(tag);
   }
 
-  // Fallback if API callback never fires
+  // If API never arrives, fall back to plain embeds
   setTimeout(function () {
-    if (!apiReady && window.YT && window.YT.Player) boot();
+    if (!booted) {
+      if (window.YT && window.YT.Player) bootApi();
+      else {
+        useFallback = true;
+        bootApi();
+      }
+    }
   }, 2500);
+
+  // Start when the testimonials section is near the viewport
+  var section = document.getElementById('testimonials');
+  if ('IntersectionObserver' in window && section) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startPlayback();
+          io.disconnect();
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.15 });
+    io.observe(section);
+  } else {
+    startPlayback();
+  }
 }());
 
 const faqItems = document.querySelectorAll('.faq-item');
