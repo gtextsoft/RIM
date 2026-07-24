@@ -581,3 +581,41 @@ faqItems.forEach(function (item) {
     btn.setAttribute('aria-expanded', item.classList.contains('is-open'));
   });
 });
+
+/* FOMO countdown: always counts down to next 12:00 PM, then loops.
+   Fresh for every visitor — no shared/server deadline, so ads can run forever. */
+(function () {
+  var hoursEl = document.getElementById('fomoHours');
+  var minsEl = document.getElementById('fomoMins');
+  var secsEl = document.getElementById('fomoSecs');
+  if (!hoursEl || !minsEl || !secsEl) return;
+
+  function pad(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  function nextNoon(from) {
+    var d = new Date(from.getTime());
+    d.setHours(12, 0, 0, 0);
+    if (from.getTime() >= d.getTime()) {
+      d.setDate(d.getDate() + 1);
+    }
+    return d;
+  }
+
+  function tick() {
+    var now = new Date();
+    var target = nextNoon(now);
+    var diff = Math.max(0, target.getTime() - now.getTime());
+    var totalSec = Math.floor(diff / 1000);
+    var h = Math.floor(totalSec / 3600);
+    var m = Math.floor((totalSec % 3600) / 60);
+    var s = totalSec % 60;
+    hoursEl.textContent = pad(h);
+    minsEl.textContent = pad(m);
+    secsEl.textContent = pad(s);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}());
