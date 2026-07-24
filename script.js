@@ -502,7 +502,6 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   }
 
   function goTo(i, keepSound) {
-    if (!started) startPlayback();
     index = (i + slides.length) % slides.length;
     track.style.transform = 'translateX(-' + (index * 100) + '%)';
     slides.forEach(function (s, n) {
@@ -515,7 +514,15 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
       });
     }
     slider.setAttribute('data-index', String(index));
-    loadPlayer(slides[index], keepSound ? false : true);
+
+    var muted = keepSound ? false : true;
+    if (!started) {
+      started = true;
+      pendingStart = { slide: slides[index], muted: muted };
+      if (apiReady || useFallback) flushPending();
+      return;
+    }
+    loadPlayer(slides[index], muted);
   }
 
   if (dotsWrap) {
@@ -539,8 +546,7 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
     if (!btn) return;
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      if (!started) startPlayback();
-      if (i !== index) {
+      if (i !== index || !started) {
         goTo(i, true);
         return;
       }
@@ -619,9 +625,7 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
 
   function startPlayback() {
     if (started) return;
-    started = true;
-    if (!pendingStart) pendingStart = { slide: slides[index], muted: true };
-    if (apiReady || useFallback) flushPending();
+    goTo(index, false);
   }
 
   var prevReady = window.onYouTubeIframeAPIReady;
