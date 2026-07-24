@@ -29,6 +29,34 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 </head>
 <body>
 
+<!-- FOMO banner — sticky top, loops countdown to next 12PM -->
+<div class="fomo-banner" role="status" aria-live="polite">
+  <div class="fomo-banner-inner">
+    <div class="fomo-banner-slots">
+      <span class="fomo-banner-pulse" aria-hidden="true"></span>
+      <span class="fomo-banner-slots-text">ONLY <strong>10 SLOTS</strong> LEFT</span>
+    </div>
+    <div class="fomo-banner-timer" id="fomoCountdown" aria-label="Offer ends at 12 PM">
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoHours">00</span>
+        <span class="fomo-label">Hrs</span>
+      </div>
+      <span class="fomo-sep" aria-hidden="true">:</span>
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoMins">00</span>
+        <span class="fomo-label">Mins</span>
+      </div>
+      <span class="fomo-sep" aria-hidden="true">:</span>
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoSecs">00</span>
+        <span class="fomo-label">Secs</span>
+      </div>
+    </div>
+    <p class="fomo-banner-note">Price jumps to <strong>₦1,000,000</strong> at 12:00 PM</p>
+    <a class="fomo-banner-cta" href="#pricing">Enroll Now</a>
+  </div>
+</div>
+
 <header class="site-header">
   <div class="header-inner">
     <a href="#home" class="header-brand">RBM</a>
@@ -440,30 +468,6 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 <!-- PRICING — two markets: Nigeria NGN + Diaspora USD -->
 <section class="pricing-section section reveal" id="pricing">
   <div class="container pricing-container">
-
-    <div class="pricing-fomo" role="status" aria-live="polite">
-      <div class="pricing-fomo-slots">
-        <span class="pricing-fomo-pulse" aria-hidden="true"></span>
-        <span class="pricing-fomo-slots-text">ONLY <strong>10 SLOTS</strong> LEFT</span>
-      </div>
-      <div class="pricing-fomo-timer" id="fomoCountdown" aria-label="Offer ends at 12 PM">
-        <div class="fomo-unit">
-          <span class="fomo-num" id="fomoHours">00</span>
-          <span class="fomo-label">Hrs</span>
-        </div>
-        <span class="fomo-sep" aria-hidden="true">:</span>
-        <div class="fomo-unit">
-          <span class="fomo-num" id="fomoMins">00</span>
-          <span class="fomo-label">Mins</span>
-        </div>
-        <span class="fomo-sep" aria-hidden="true">:</span>
-        <div class="fomo-unit">
-          <span class="fomo-num" id="fomoSecs">00</span>
-          <span class="fomo-label">Secs</span>
-        </div>
-      </div>
-      <p class="pricing-fomo-note">Price increases to <strong>₦1,000,000</strong> when this timer hits zero · Resets daily at 12:00 PM</p>
-    </div>
 
     <div class="pricing-urgency-banner" role="status">
       <span class="pricing-urgency-dot" aria-hidden="true"></span>

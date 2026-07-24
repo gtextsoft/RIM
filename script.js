@@ -588,7 +588,16 @@ faqItems.forEach(function (item) {
   var hoursEl = document.getElementById('fomoHours');
   var minsEl = document.getElementById('fomoMins');
   var secsEl = document.getElementById('fomoSecs');
+  var banner = document.querySelector('.fomo-banner');
   if (!hoursEl || !minsEl || !secsEl) return;
+
+  function syncBannerHeight() {
+    if (!banner) return;
+    var h = Math.ceil(banner.getBoundingClientRect().height);
+    if (h > 0) {
+      document.documentElement.style.setProperty('--fomo-banner-h', h + 'px');
+    }
+  }
 
   function pad(n) {
     return n < 10 ? '0' + n : String(n);
@@ -617,5 +626,7 @@ faqItems.forEach(function (item) {
   }
 
   tick();
+  syncBannerHeight();
   setInterval(tick, 1000);
+  window.addEventListener('resize', syncBannerHeight);
 }());
