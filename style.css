@@ -1649,6 +1649,30 @@ p {
   margin-bottom: 1rem;
 }
 
+.tier-price-was-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.tier-price-was-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.tier-price-was {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #b0b0b0;
+  text-decoration: line-through;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2.5px;
+}
+
 .tier-price-main {
   display: block;
   font-family: var(--font-display);
@@ -1657,6 +1681,24 @@ p {
   letter-spacing: -0.03em;
   color: var(--color-text);
   line-height: 1.1;
+}
+
+.coupon-block--tier {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.15rem;
+  background: #fafafa;
+  border: 1.5px dashed rgba(196, 30, 90, 0.4);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.coupon-block--tier .coupon-label {
+  color: var(--color-text-muted);
+}
+
+.coupon-block--tier .coupon-code {
+  color: var(--color-text);
+  background: rgba(196, 30, 90, 0.08);
 }
 
 .tier-currency {

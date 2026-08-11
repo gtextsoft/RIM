@@ -109,7 +109,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
               Enroll now
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <span class="hero-cta-note">RBM50 ends 14 Aug · Cohort 15 Aug · Pay in Naira or USD</span>
+            <span class="hero-cta-note">RBM500 ends 14 Aug · Cohort 15 Aug · Pay in Naira or USD</span>
           </div>
         </main>
       </div>
@@ -471,18 +471,18 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 
     <div class="pricing-urgency-banner" role="status">
       <span class="pricing-urgency-dot" aria-hidden="true"></span>
-      <span><strong>RBM50</strong> ends <strong>14 August 2026</strong> · Cohort starts <strong>15 August 2026</strong> · Starts this month — these dates are real and close</span>
+      <span><strong>RBM500</strong> ends <strong>14 August 2026</strong> · Cohort starts <strong>15 August 2026</strong> · Starts this month — these dates are real and close</span>
     </div>
 
     <div class="pricing-header">
       <p class="pricing-eyebrow">Two markets. Two checkouts. Same programme.</p>
       <h2>Pay in Naira if you’re in Nigeria. Pay in USD if you’re abroad.</h2>
       <div class="hero-accent-bar" aria-hidden="true"></div>
-      <p class="pricing-subheading">Most Nigerian debit cards will not clear a $750 international charge. That is why we run a <strong>fixed Naira domestic tier</strong> (Paystack) and a <strong>USD diaspora tier</strong> (Stripe). Same curriculum, live access, and certificate — priced for how you actually earn and pay.</p>
+      <p class="pricing-subheading">Most Nigerian debit cards will not clear a $1,000 international charge. That is why we run a <strong>fixed Naira domestic tier</strong> (Paystack) and a <strong>USD diaspora tier</strong> (Stripe). Same curriculum, live access, and certificate — priced for how you actually earn and pay.</p>
     </div>
 
     <div class="tier-gap-note">
-      <p><strong>Why the prices differ:</strong> The Naira tier is fixed at <strong>₦1,500,000</strong> for domestic purchasing power — aspiring realtors and operators earning in NGN. The USD tier ($750) is for diaspora professionals earning in USD, GBP, or AED. It is not a live FX conversion. The gap exists because a single dollar price either locks out Lagos buyers or underprices diaspora buyers who are sending money home into land deals.</p>
+      <p><strong>Why the prices differ:</strong> The Naira tier is fixed at <strong>₦1,500,000</strong> for domestic purchasing power — aspiring realtors and operators earning in NGN. The USD tier is <strong>$1,500</strong> (or <strong>$1,000</strong> with code <strong>RBM500</strong>) for diaspora professionals earning in USD, GBP, or AED. It is not a live FX conversion. The gap exists because a single dollar price either locks out Lagos buyers or underprices diaspora buyers who are sending money home into land deals.</p>
     </div>
 
     <div class="pricing-tiers" id="checkoutTiers">
@@ -513,8 +513,23 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <h3 class="tier-card-name">International enrollment</h3>
         <p class="tier-card-who">For professionals abroad earning in USD, GBP, or AED</p>
         <div class="tier-price">
-          <span class="tier-price-main"><span class="tier-currency">$</span>750</span>
-          <span class="tier-price-note">One-time · RBM50 auto-applied through 14 Aug 2026</span>
+          <div class="tier-price-was-row">
+            <span class="tier-price-was-label">Was</span>
+            <span class="tier-price-was"><span class="tier-currency">$</span>1,500</span>
+          </div>
+          <span class="tier-price-main"><span class="tier-currency">$</span>1,000</span>
+          <span class="tier-price-note">One-time · Code <strong>RBM500</strong> saves $500 through 14 Aug 2026</span>
+        </div>
+        <div class="coupon-block coupon-block--tier">
+          <p class="coupon-label">Use coupon code at checkout</p>
+          <div class="coupon-row">
+            <span class="coupon-code" id="couponCodeDisplay">RBM500</span>
+            <button type="button" class="coupon-copy-btn" id="couponCopyBtn" data-coupon="RBM500" aria-label="Copy coupon code RBM500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              Copy
+            </button>
+          </div>
+          <p class="coupon-copied-msg" id="couponCopiedMsg" hidden>Copied — $1,500 → $1,000</p>
         </div>
         <p class="tier-diaspora-frame">If you send money home for land, one poorly structured deal can cost far more than this enrollment. RBM is priced as protection against that kind of mistake — clarity on sectors, capital-raising, and how deals actually work — not as a promise of returns.</p>
         <ul class="tier-features">
@@ -523,18 +538,18 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <li>Templates, capital-raise playbook, recordings, certificate</li>
           <li>Week 1 satisfaction guarantee</li>
         </ul>
-        <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM50" class="pricing-btn pricing-btn--usd" id="primaryEnrollBtn" data-usd-checkout target="_blank" rel="noopener noreferrer">
-          Pay in USD — $750
+        <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" class="pricing-btn pricing-btn--usd" id="primaryEnrollBtn" data-usd-checkout target="_blank" rel="noopener noreferrer">
+          Pay in USD — $1,000
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <p class="tier-cta-note">Stripe · Coupon RBM50 applied automatically until 14 Aug</p>
+        <p class="tier-cta-note">Stripe · Coupon <strong>RBM500</strong> auto-applied ($1,500 → $1,000) until 14 Aug</p>
       </article>
 
     </div>
 
     <div class="payment-fallback" id="paymentFallback" hidden>
       <div class="payment-fallback-inner">
-        <h3 class="payment-fallback-title">Card declined or won’t clear $750?</h3>
+        <h3 class="payment-fallback-title">Card declined or won’t clear $1,000?</h3>
         <p class="payment-fallback-copy">Most Nigerian debit cards cannot process an international USD charge. You do not need to leave this page — switch to the ₦1,500,000 Naira checkout below.</p>
         <a href="https://paystack.shop/pay/tf4ym256c0" class="pricing-btn pricing-btn--accent" id="fallbackNairaBtn" target="_blank" rel="noopener noreferrer">
           Continue with ₦1,500,000 (Paystack)
@@ -557,8 +572,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="pricing-trust-item">
         <span class="pricing-trust-icon" aria-hidden="true">📅</span>
         <div>
-          <strong>RBM50 → 14 Aug</strong>
-          <span>Coupon ends the day before class</span>
+          <strong>RBM500 → 14 Aug</strong>
+          <span>$1,500 → $1,000 · ends the day before class</span>
         </div>
       </div>
       <div class="pricing-trust-item">
@@ -642,7 +657,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">06</span>
           <span class="faq-question-text">How do I enroll — Naira or USD?</span>
         </button>
-        <div class="faq-answer"><p><strong>In Nigeria:</strong> pay <strong>₦1,500,000</strong> via <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Paystack</a> — Nigerian debit cards work. <strong>Abroad:</strong> use Stripe for <strong>$750 USD</strong> (RBM50 auto-applied through 14 Aug 2026). Same programme either way. If a USD card declines, stay on this page and switch to the Naira option.</p></div>
+        <div class="faq-answer"><p><strong>In Nigeria:</strong> pay <strong>₦1,500,000</strong> via <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Paystack</a> — Nigerian debit cards work. <strong>Abroad:</strong> use Stripe for <strong>$1,000 USD</strong> with code <strong>RBM500</strong> (from $1,500, through 14 Aug 2026). Same programme either way. If a USD card declines, stay on this page and switch to the Naira option.</p></div>
       </div>
 
       <div class="faq-item">
@@ -650,7 +665,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">07</span>
           <span class="faq-question-text">Why are there two different prices?</span>
         </button>
-        <div class="faq-answer"><p>Because one dollar price fails both markets. A Lagos aspiring realtor often cannot clear $750 on a local card; a diaspora professional earning in USD/GBP/AED is not priced the same as a domestic NGN earner. The Naira tier is a fixed <strong>₦1,500,000</strong> (not live FX). The USD tier is for international earners — framed as protection against one costly mistake on money sent home for land, not as an income promise.</p></div>
+        <div class="faq-answer"><p>Because one dollar price fails both markets. A Lagos aspiring realtor often cannot clear $1,000 on a local card; a diaspora professional earning in USD/GBP/AED is not priced the same as a domestic NGN earner. The Naira tier is a fixed <strong>₦1,500,000</strong> (not live FX). The USD tier is <strong>$1,500</strong>, or <strong>$1,000</strong> with coupon <strong>RBM500</strong> — framed as protection against one costly mistake on money sent home for land, not as an income promise.</p></div>
       </div>
 
       <div class="faq-item">
@@ -673,22 +688,22 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="cta-content">
         <span class="cta-badge">
           <span class="cta-badge-dot" aria-hidden="true"></span>
-          RBM50 ends 14 Aug · Cohort 15 Aug
+          RBM500 ends 14 Aug · Cohort 15 Aug
         </span>
         <h2 class="cta-title">Your Map Into Real Estate Starts This August</h2>
         <div class="hero-accent-bar cta-accent-bar" aria-hidden="true"></div>
-        <p class="cta-desc">Join the next live RBM cohort with <strong>Dr. Stephen Akintayo</strong>. Nigeria buyers: <strong>₦1,500,000</strong> on Paystack. Diaspora: <strong>$750 USD</strong> on Stripe. Same programme — backed by a Week 1 satisfaction guarantee.</p>
+        <p class="cta-desc">Join the next live RBM cohort with <strong>Dr. Stephen Akintayo</strong>. Nigeria buyers: <strong>₦1,500,000</strong> on Paystack. Diaspora: <strong>$1,000 USD</strong> with code <strong>RBM500</strong> (from $1,500) on Stripe. Same programme — backed by a Week 1 satisfaction guarantee.</p>
 
         <div class="cta-actions">
           <a class="btn cta-btn" href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">
             Pay ₦1,500,000 (Paystack)
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM50" data-usd-checkout target="_blank" rel="noopener noreferrer">
-            Pay in USD — $750
+          <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" data-usd-checkout target="_blank" rel="noopener noreferrer">
+            Pay in USD — $1,000
           </a>
         </div>
-        <p class="cta-payment-note">Card won’t clear USD? Pay ₦1,500,000. Coupon RBM50 ends 14 August — cohort starts 15 August.</p>
+        <p class="cta-payment-note">Card won’t clear USD? Pay ₦1,500,000. Coupon <strong>RBM500</strong> ($1,500 → $1,000) ends 14 August — cohort starts 15 August.</p>
 
         <p class="cta-contact-line">Questions? Email <a href="mailto:products@stephenakintayo.com">products@stephenakintayo.com</a> or call <a href="tel:+2348167901719">+234 816 790 1719</a> · <a href="tel:+2348180000618">+234 818 000 0618</a></p>
       </div>
@@ -765,7 +780,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></path></svg>
       </div>
       <h2 class="modal-title" id="modalTitle">Questions Before You Enroll?</h2>
-      <p class="modal-subtitle">Leave your details and we’ll call you back. Ready to join now? <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM50" target="_blank" rel="noopener noreferrer">Pay in USD ($750)</a> or <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦1,500,000</a>.</p>
+      <p class="modal-subtitle">Leave your details and we’ll call you back. Ready to join now? <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" target="_blank" rel="noopener noreferrer">Pay in USD ($1,000 with RBM500)</a> or <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦1,500,000</a>.</p>
 
       <form class="register-form" id="registerForm" action="https://formspree.io/f/xlgpoevp" method="POST" novalidate>
         <div class="form-row">
@@ -826,7 +841,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <p class="modal-subtitle">Thanks. Our team will reach out shortly. If you’re ready now, you can still enroll instantly.</p>
       <div class="modal-enroll-actions" style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.65rem;width:100%;max-width:320px">
         <a class="btn cta-btn" href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦1,500,000 (Paystack)</a>
-        <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM50" data-usd-checkout target="_blank" rel="noopener noreferrer">Pay in USD — $750</a>
+        <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" data-usd-checkout target="_blank" rel="noopener noreferrer">Pay in USD — $1,000</a>
         <button class="cta-btn-secondary" id="modalSuccessClose">Close</button>
       </div>
     </div>
