@@ -694,14 +694,17 @@ faqItems.forEach(function (item) {
   });
 });
 
-/* FOMO countdown: always counts down to next 12:00 PM, then loops.
-   Fresh for every visitor — no shared/server deadline, so ads can run forever. */
+/* Evergreen 24h FOMO countdown. Starts at 24:00:00 for each visitor,
+   keeps ticking across refreshes, then loops when it hits zero. */
 (function () {
   var hoursEl = document.getElementById('fomoHours');
   var minsEl = document.getElementById('fomoMins');
   var secsEl = document.getElementById('fomoSecs');
   var banner = document.querySelector('.fomo-banner');
   if (!hoursEl || !minsEl || !secsEl) return;
+
+  var STORAGE_KEY = 'grbmPromoDeadline';
+  var DAY_MS = 24 * 60 * 60 * 1000;
 
   function syncBannerHeight() {
     if (!banner) return;
@@ -715,60 +718,45 @@ faqItems.forEach(function (item) {
     return n < 10 ? '0' + n : String(n);
   }
 
-  function nextNoon(from) {
-    var d = new Date(from.getTime());
-    d.setHours(12, 0, 0, 0);
-    if (from.getTime() >= d.getTime()) {
-      d.setDate(d.getDate() + 1);
-    }
-    return d;
+  function readDeadline() {
+    try {
+      var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+      if (stored && stored > Date.now()) return stored;
+    } catch (e) {}
+    return 0;
+  }
+
+  function writeDeadline(ts) {
+    try {
+      localStorage.setItem(STORAGE_KEY, String(ts));
+    } catch (e) {}
+  }
+
+  function getDeadline() {
+    var stored = readDeadline();
+    if (stored) return stored;
+    var next = Date.now() + DAY_MS;
+    writeDeadline(next);
+    return next;
   }
 
   function tick() {
-    var now = new Date();
-    var target = nextNoon(now);
-    var diff = Math.max(0, target.getTime() - now.getTime());
+    var now = Date.now();
+    var target = getDeadline();
+    var diff = target - now;
+    if (diff <= 0) {
+      target = now + DAY_MS;
+      writeDeadline(target);
+      diff = DAY_MS;
+    }
     var totalSec = Math.floor(diff / 1000);
-    var h = Math.floor(totalSec / 3600);
-    var m = Math.floor((totalSec % 3600) / 60);
-    var s = totalSec % 60;
-    hoursEl.textContent = pad(h);
-    minsEl.textContent = pad(m);
-    secsEl.textContent = pad(s);
+    hoursEl.textContent = pad(Math.floor(totalSec / 3600));
+    minsEl.textContent = pad(Math.floor((totalSec % 3600) / 60));
+    secsEl.textContent = pad(totalSec % 60);
   }
 
   tick();
   syncBannerHeight();
   setInterval(tick, 1000);
   window.addEventListener('resize', syncBannerHeight);
-}());
-
-/* Coupon copy — RBM500 ($1,500 → $1,000) */
-(function () {
-  var btn = document.getElementById('couponCopyBtn');
-  var msg = document.getElementById('couponCopiedMsg');
-  if (!btn) return;
-
-  btn.addEventListener('click', function () {
-    var code = btn.getAttribute('data-coupon') || 'RBM500';
-    var done = function () {
-      btn.classList.add('is-copied');
-      btn.textContent = 'Copied';
-      if (msg) msg.hidden = false;
-      setTimeout(function () {
-        btn.classList.remove('is-copied');
-        btn.innerHTML =
-          '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> Copy';
-        if (msg) msg.hidden = true;
-      }, 2000);
-    };
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code).then(done).catch(function () {
-        window.prompt('Copy this coupon code:', code);
-      });
-    } else {
-      window.prompt('Copy this coupon code:', code);
-    }
-  });
 }());

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Real Estate Business Masterclass (RBM) 3.0</title>
+<title>Global Real Estate Business Masterclass (GRBM) 3.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
@@ -29,21 +29,37 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 </head>
 <body>
 
-<!-- Cohort banner -->
+<!-- FOMO banner — 24h promo countdown, loops forever -->
 <div class="fomo-banner" role="status" aria-live="polite">
   <div class="fomo-banner-inner">
     <div class="fomo-banner-slots">
       <span class="fomo-banner-pulse" aria-hidden="true"></span>
-      <span class="fomo-banner-slots-text"><strong>RBM 3.0</strong> · 5-WEEK VIRTUAL COHORT</span>
+      <span class="fomo-banner-slots-text">THIS PRICE <strong>ENDS SOON</strong></span>
     </div>
-    <p class="fomo-banner-note">Nov 21 – Dec 19, 2026 · 5:00 PM Nigeria time</p>
+    <div class="fomo-banner-timer" id="fomoCountdown" aria-label="Promo expires in 24 hours">
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoHours">24</span>
+        <span class="fomo-label">Hrs</span>
+      </div>
+      <span class="fomo-sep" aria-hidden="true">:</span>
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoMins">00</span>
+        <span class="fomo-label">Mins</span>
+      </div>
+      <span class="fomo-sep" aria-hidden="true">:</span>
+      <div class="fomo-unit">
+        <span class="fomo-num" id="fomoSecs">00</span>
+        <span class="fomo-label">Secs</span>
+      </div>
+    </div>
+    <p class="fomo-banner-note">₦4M → <strong>₦2.3M</strong> · $3K → <strong>$1K</strong></p>
     <a class="fomo-banner-cta" href="#pricing">Enroll Now</a>
   </div>
 </div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="#home" class="header-brand">RBM</a>
+    <a href="#home" class="header-brand">GRBM</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -77,8 +93,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <header class="hero-header">
           <div class="hero-logo">
             <div class="hero-logo-meta">
-              <p class="hero-logo-title">Real Estate Business Masterclass</p>
-              <p class="hero-slogan">5 WEEKS LIVE · NOV 21 – DEC 19, 2026 · VIRTUAL</p>
+              <p class="hero-logo-title">Global Real Estate Business Masterclass (GRBM) 3.0</p>
+              <p class="hero-slogan">5 WEEKS INTENSIVE · NOV 21 – DEC 19 · VIRTUAL</p>
             </div>
           </div>
         </header>
@@ -87,13 +103,13 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <!-- Hero option set C (balanced) live. Alternatives documented in CRO notes below hero. -->
           <h1 class="hero-title">Stop Guessing Your Way Into Real Estate. <span class="hero-title-accent">Build a Business That Attracts Investment.</span></h1>
           <div class="hero-accent-bar" aria-hidden="true"></div>
-          <p class="hero-subtitle">In 5 live weeks with <b>Dr. Stephen Akintayo</b>, you’ll map the 12 real estate categories that actually make money — and leave with a capital-raising playbook you can use to fund your next deal.</p>
+          <p class="hero-subtitle">In 5 intensive weeks with <b>Dr. Stephen Akintayo</b>, you’ll map the 12 advanced real estate categories that actually make money — covering the <b>US, UK, Middle East, and African markets</b> — and leave with a capital-raising playbook you can use to fund your next deal.</p>
           <div class="hero-cta-group">
             <a class="hero-cta-btn" href="#pricing">
               Enroll now
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <span class="hero-cta-note">Cohort runs Nov 21 – Dec 19 · Pay in Naira or USD</span>
+            <span class="hero-cta-note">Nov 21 – Dec 19 · 5:00 PM WAT · Pay in Naira or USD</span>
           </div>
         </main>
       </div>
@@ -144,19 +160,33 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         </div>
         <div class="program-detail-item">
           <dt>Duration</dt>
-          <dd>5 Weeks</dd>
+          <dd>5 Weeks Intensive</dd>
         </div>
         <div class="program-detail-item">
           <dt>Date</dt>
           <dd>21st November – 19th December, 2026</dd>
         </div>
         <div class="program-detail-item">
-          <dt>Time</dt>
-          <dd>5:00 PM WAT · 12:00 PM EDT</dd>
+          <dt>Markets</dt>
+          <dd>US, UK, Middle East &amp; Africa</dd>
+        </div>
+        <div class="program-detail-item program-detail-timezones">
+          <dt>Session times</dt>
+          <dd>
+            <ul class="timezone-list">
+              <li><span class="tz-place">UK (BST)</span><span class="tz-time">5:00 PM</span></li>
+              <li><span class="tz-place">Nigeria (WAT)</span><span class="tz-time">5:00 PM</span></li>
+              <li><span class="tz-place">UAE (GST)</span><span class="tz-time">8:00 PM</span></li>
+              <li><span class="tz-place">Saudi Arabia (AST)</span><span class="tz-time">7:00 PM</span></li>
+              <li><span class="tz-place">USA – Texas (CDT)</span><span class="tz-time">11:00 AM</span></li>
+              <li><span class="tz-place">USA – New York (EDT)</span><span class="tz-time">12:00 PM</span></li>
+              <li><span class="tz-place">USA – Los Angeles (PDT)</span><span class="tz-time">9:00 AM</span></li>
+            </ul>
+          </dd>
         </div>
         <div class="program-detail-item program-detail-bonus">
-          <dt>Bonus</dt>
-          <dd>Includes Certification</dd>
+          <dt>Includes</dt>
+          <dd>Certification + professional network</dd>
         </div>
       </dl>
     </div>
@@ -177,15 +207,15 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <h2 class="why-title">You’re Not Stuck Because You’re Lazy. You’re Stuck Because There’s No Map.</h2>
       <div class="hero-accent-bar" aria-hidden="true"></div>
       <p class="why-subtitle">Most people who want into real estate hit the same wall: too many “opportunities,” no capital, and no clear first move. They buy a course, watch a few videos, and still can’t answer: <em>Which sector fits me — and how do I fund the deal?</em></p>
-      <p class="why-subtitle">Dr. Stephen Akintayo built RBM for that exact gap. After years of building and teaching across markets, he saw the same pattern: ambitious people drowning in theory, with no business system for choosing a niche or raising money. This 5-week live masterclass is the map — 12 categories, capital-raising, and the frameworks to act.</p>
+      <p class="why-subtitle">Dr. Stephen Akintayo built GRBM for that exact gap. After years of building and teaching across the US, UK, Middle East, and African markets, he saw the same pattern: ambitious people drowning in theory, with no business system for choosing a niche or raising money. This 5-week intensive masterclass is the map — 12 advanced categories, capital-raising, and the frameworks to act.</p>
     </div>
   </div>
 </section>
 
 <!-- WHAT YOU WILL LEARN -->
 <section class="section container reveal learn-section" id="learn">
-<h2>12 Real Estate Categories — Each With a Clear Outcome</h2>
-<p class="section-lead">Not a list of topics. A working map of where money is made — and which path fits you.</p>
+<h2>Advanced Curriculum — 12 Advanced Real Estate Categories</h2>
+<p class="section-lead">Training covers the US, UK, Middle East, and African markets. Not a list of topics — a working map of where money is made, and which path fits you.</p>
 <div class="learn-grid">
 <div class="learn-item">
 <div class="learn-icon">
@@ -274,7 +304,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 </div>
 
 <div class="learn-cta">
-  <p class="learn-bonus"><b>Plus capital-raising:</b> pitch structure, investor conversations, marketing systems, team building, and live case studies — so you leave with a path to fund deals, not just ideas.</p>
+  <p class="learn-bonus"><b>Plus capital-raising:</b> pitch structure, investor conversations, marketing systems, team building, and live case studies — so you leave with a path to fund deals, not just ideas. Completers also get certification and access to a network of professionals.</p>
   <a class="btn btn-particle" href="#pricing">See Naira &amp; USD options<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l7.5 7.5"/><path d="M3 21l3-9 9-3-3 9z"/><path d="M12 2v4"/><path d="M2 12h4"/></svg></a>
 </div>
 </section>
@@ -323,8 +353,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 <div class="benefit-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
 </div>
-<h3>Certificate + post-program support</h3>
-<p class="benefit-desc">Official completion credential, cohort network, and direct support channels.</p>
+<h3>Certificate + professional network</h3>
+<p class="benefit-desc">Official completion credential, plus access to a network of professionals and post-program support.</p>
 </div>
 </div>
 <!-- CLIENT: Confirm which deliverables (templates, models, lifetime recordings, post-program support) are contractually included before launch. -->
@@ -338,7 +368,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <h2 class="instructor-title">Meet Dr. Stephen Akintayo</h2>
       <div class="hero-accent-bar" aria-hidden="true"></div>
       <p class="instructor-bio">Dr. Stephen Akintayo is an entrepreneur, investor, author, and business leader known for practical teaching on entrepreneurship, investment, sales, and wealth creation.</p>
-      <p class="instructor-bio">As the <b>Founder of SACI Holdings</b>, he built RBM for people who are serious about real estate as a business — not a hobby. The curriculum reflects what he teaches operators who need sector clarity and a path to raise capital.</p>
+      <p class="instructor-bio">As the <b>Founder of SACI Holdings USA</b>, he built GRBM for people who are serious about real estate as a business — not a hobby. The advanced curriculum reflects what he teaches operators who need sector clarity and a path to raise capital.</p>
       <div class="instructor-tags">
         <span class="instructor-tag">Entrepreneur</span>
         <span class="instructor-tag">Investor</span>
@@ -443,7 +473,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
     </div>
     <h2 class="guarantee-title">Week 1 Satisfaction Guarantee</h2>
     <div class="hero-accent-bar" aria-hidden="true"></div>
-    <p class="guarantee-copy">Attend the first live session. If RBM isn’t the right fit, email us within 48 hours of Week 1 and we’ll refund your enrollment in full — no awkward questions.</p>
+    <p class="guarantee-copy">Attend the first live session. If GRBM isn’t the right fit, email us within 48 hours of Week 1 and we’ll refund your enrollment in full — no awkward questions.</p>
     <p class="guarantee-trust">Protected enrollment · Full refund after Week 1 if unsatisfied · <!-- CLIENT: Confirm ops/legal can honor this before publishing. --> You’re deciding with eyes open.</p>
     <a class="btn" href="#pricing">Choose your enrollment option</a>
   </div>
@@ -455,7 +485,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 
     <div class="pricing-urgency-banner" role="status">
       <span class="pricing-urgency-dot" aria-hidden="true"></span>
-      <span><strong>RBM 3.0</strong> · Cohort starts <strong>21 November 2026</strong> · 5 weeks live through 19 December</span>
+      <span><strong>GRBM 3.0</strong> · Cohort starts <strong>21 November 2026</strong> · 5 weeks intensive through 19 December</span>
     </div>
 
     <div class="pricing-header">
@@ -466,7 +496,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
     </div>
 
     <div class="tier-gap-note">
-      <p><strong>Why the prices differ:</strong> The Naira tier is fixed at <strong>₦1,500,000</strong> for domestic purchasing power — aspiring realtors and operators earning in NGN. The USD tier is <strong>$1,500</strong> (or <strong>$1,000</strong> with code <strong>RBM500</strong>) for diaspora professionals earning in USD, GBP, or AED. It is not a live FX conversion. The gap exists because a single dollar price either locks out Lagos buyers or underprices diaspora buyers who are sending money home into land deals.</p>
+      <p><strong>Why the prices differ:</strong> The Naira tier is <strong>₦4,000,000</strong>, now <strong>₦2,300,000</strong> for domestic purchasing power — aspiring realtors and operators earning in NGN. The USD tier is <strong>$3,000</strong>, now <strong>$1,000</strong> for diaspora professionals earning in USD, GBP, or AED. It is not a live FX conversion. The gap exists because a single dollar price either locks out Lagos buyers or underprices diaspora buyers who are sending money home into land deals.</p>
     </div>
 
     <div class="pricing-tiers" id="checkoutTiers">
@@ -475,21 +505,28 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <div class="tier-card-badge">Nigeria · Recommended</div>
         <h3 class="tier-card-name">Domestic enrollment</h3>
         <p class="tier-card-who">For buyers in Nigeria paying with a local debit card</p>
-        <div class="tier-price">
-          <span class="tier-price-main" id="ngnPriceDisplay">₦1,500,000</span>
-          <span class="tier-price-note">One-time · Fixed domestic price · not live FX</span>
+        <div class="tier-price tier-price--deal">
+          <div class="tier-price-was-row">
+            <span class="tier-price-was-label">Was</span>
+            <span class="tier-price-was">₦4,000,000</span>
+          </div>
+          <div class="tier-price-now-row">
+            <span class="tier-price-main tier-price-main--deal" id="ngnPriceDisplay">₦2,300,000</span>
+            <span class="tier-save-badge">Save ₦1.7M</span>
+          </div>
+          <span class="tier-price-note">One-time · ₦4,000,000 → ₦2,300,000</span>
         </div>
         <ul class="tier-features">
-          <li>Full 5-week live RBM 3.0 cohort (Nov 21 – Dec 19)</li>
+          <li>Full 5-week intensive GRBM 3.0 cohort (Nov 21 – Dec 19)</li>
           <li>Paystack checkout in Naira — Nigerian cards work</li>
           <li>Templates, capital-raise playbook, recordings, certificate</li>
           <li>Week 1 satisfaction guarantee</li>
         </ul>
         <a href="https://paystack.shop/pay/tf4ym256c0" class="pricing-btn pricing-btn--accent" id="nairaEnrollBtn" target="_blank" rel="noopener noreferrer">
-          Pay ₦1,500,000 (Paystack)
+          Pay ₦2,300,000 (Paystack)
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <p class="tier-cta-note">Secured by Paystack · ₦1,500,000 fixed</p>
+        <p class="tier-cta-note">Paystack · ₦4,000,000 → ₦2,300,000</p>
       </article>
 
       <article class="tier-card tier-card--diaspora" id="tier-usd">
@@ -499,37 +536,26 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <div class="tier-price tier-price--deal">
           <div class="tier-price-was-row">
             <span class="tier-price-was-label">Was</span>
-            <span class="tier-price-was"><span class="tier-currency">$</span>1,500</span>
+            <span class="tier-price-was"><span class="tier-currency">$</span>3,000</span>
           </div>
           <div class="tier-price-now-row">
             <span class="tier-price-main tier-price-main--deal"><span class="tier-currency">$</span>1,000</span>
-            <span class="tier-save-badge">Save $500</span>
+            <span class="tier-save-badge">Save $2,000</span>
           </div>
-          <span class="tier-price-note">One-time · Full 5-week RBM 3.0 cohort</span>
+          <span class="tier-price-note">One-time · $3,000 → $1,000</span>
         </div>
-        <div class="coupon-block coupon-block--tier">
-          <p class="coupon-label">Use coupon code at checkout</p>
-          <div class="coupon-row">
-            <span class="coupon-code" id="couponCodeDisplay">RBM500</span>
-            <button type="button" class="coupon-copy-btn" id="couponCopyBtn" data-coupon="RBM500" aria-label="Copy coupon code RBM500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-              Copy
-            </button>
-          </div>
-          <p class="coupon-copied-msg" id="couponCopiedMsg" hidden>Copied — $1,500 → $1,000</p>
-        </div>
-        <p class="tier-diaspora-frame">If you send money home for land, one poorly structured deal can cost far more than this enrollment. RBM is priced as protection against that kind of mistake — clarity on sectors, capital-raising, and how deals actually work — not as a promise of returns.</p>
+        <p class="tier-diaspora-frame">If you send money home for land, one poorly structured deal can cost far more than this enrollment. GRBM is priced as protection against that kind of mistake — clarity on sectors, capital-raising, and how deals actually work — not as a promise of returns.</p>
         <ul class="tier-features">
           <li>Same full programme as the Naira tier</li>
           <li>Stripe checkout in USD</li>
           <li>Templates, capital-raise playbook, recordings, certificate</li>
           <li>Week 1 satisfaction guarantee</li>
         </ul>
-        <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" class="pricing-btn pricing-btn--usd" id="primaryEnrollBtn" data-usd-checkout target="_blank" rel="noopener noreferrer">
+        <a href="https://buy.stripe.com/3cIbJ29B23vpaoSgfGew80U" class="pricing-btn pricing-btn--usd" id="primaryEnrollBtn" data-usd-checkout target="_blank" rel="noopener noreferrer">
           Pay in USD — $1,000
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <p class="tier-cta-note">Stripe · Full 5-week RBM 3.0 cohort</p>
+        <p class="tier-cta-note">Stripe · $3,000 → $1,000</p>
       </article>
 
     </div>
@@ -537,9 +563,9 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
     <div class="payment-fallback" id="paymentFallback" hidden>
       <div class="payment-fallback-inner">
         <h3 class="payment-fallback-title">Card declined or won’t clear $1,000?</h3>
-        <p class="payment-fallback-copy">Most Nigerian debit cards cannot process an international USD charge. You do not need to leave this page — switch to the ₦1,500,000 Naira checkout below.</p>
+        <p class="payment-fallback-copy">Most Nigerian debit cards cannot process an international USD charge. You do not need to leave this page — switch to the ₦2,300,000 Naira checkout below.</p>
         <a href="https://paystack.shop/pay/tf4ym256c0" class="pricing-btn pricing-btn--accent" id="fallbackNairaBtn" target="_blank" rel="noopener noreferrer">
-          Continue with ₦1,500,000 (Paystack)
+          Continue with ₦2,300,000 (Paystack)
         </a>
         <button type="button" class="text-link-btn payment-fallback-dismiss" id="paymentFallbackDismiss">Keep trying USD</button>
       </div>
@@ -548,10 +574,10 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
     <div class="pricing-value-card pricing-value-card--below">
       <h3 class="pricing-value-title">What’s included in both tiers</h3>
       <ul class="pricing-value-list">
-        <li>12 real estate categories + capital-raise playbook</li>
+        <li>12 advanced real estate categories + capital-raise playbook</li>
         <li>Deal-analysis templates and session recordings</li>
         <li>Live weekly sessions · Nov 21 – Dec 19, 2026 · 5:00 PM WAT · 12:00 PM EDT</li>
-        <li>Certificate · Week 1 satisfaction guarantee · Post-program support</li>
+        <li>Certification · Professional network · Week 1 satisfaction guarantee</li>
       </ul>
     </div>
 
@@ -559,8 +585,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="pricing-trust-item">
         <span class="pricing-trust-icon" aria-hidden="true">📅</span>
         <div>
-        <strong>RBM 3.0 → 21 Nov</strong>
-          <span>5-week virtual cohort · runs through 19 Dec</span>
+        <strong>GRBM 3.0 → 21 Nov</strong>
+          <span>5-week intensive virtual cohort · through 19 Dec</span>
         </div>
       </div>
       <div class="pricing-trust-item">
@@ -574,7 +600,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <span class="pricing-trust-icon" aria-hidden="true">🇳🇬</span>
         <div>
           <strong>Naira via Paystack</strong>
-          <span>₦1,500,000 for Nigerian cards</span>
+          <span>₦4,000,000 → ₦2,300,000 for Nigerian cards</span>
         </div>
       </div>
       <div class="pricing-trust-item">
@@ -595,7 +621,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
     <div class="faq-header">
       <h2 class="faq-heading">Frequently Asked Questions</h2>
       <div class="hero-accent-bar" aria-hidden="true"></div>
-      <p class="faq-subheading">Everything you need to know about enrolling in RBM.</p>
+      <p class="faq-subheading">Everything you need to know about enrolling in GRBM 3.0.</p>
     </div>
 
     <div class="faq-list">
@@ -612,7 +638,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">02</span>
           <span class="faq-question-text">How long is the masterclass?</span>
         </button>
-        <div class="faq-answer"><p>The cohort runs for 5 weeks, from 21st November to 19th December 2026, with weekly live sessions at 5:00 PM WAT (12:00 PM EDT). Session recordings are included with lifetime access.</p></div>
+        <div class="faq-answer"><p>The cohort is a 5-week intensive, from 21st November to 19th December 2026, with weekly live sessions at 5:00 PM WAT (12:00 PM EDT). Session recordings are included with lifetime access.</p></div>
       </div>
 
       <div class="faq-item">
@@ -620,7 +646,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">03</span>
           <span class="faq-question-text">What is the Week 1 satisfaction guarantee?</span>
         </button>
-        <div class="faq-answer"><p>Attend the first live session. If RBM isn’t the right fit, email <a href="mailto:products@stephenakintayo.com">products@stephenakintayo.com</a> within 48 hours of Week 1 and we’ll refund your enrollment in full. <!-- CLIENT: Confirm refund ops process before launch. --></p></div>
+        <div class="faq-answer"><p>Attend the first live session. If GRBM isn’t the right fit, email <a href="mailto:products@stephenakintayo.com">products@stephenakintayo.com</a> within 48 hours of Week 1 and we’ll refund your enrollment in full. <!-- CLIENT: Confirm refund ops process before launch. --></p></div>
       </div>
 
       <div class="faq-item">
@@ -628,7 +654,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">04</span>
           <span class="faq-question-text">Will participants receive certification?</span>
         </button>
-        <div class="faq-answer"><p>Yes. Participants who complete the program receive an official certificate of completion.</p></div>
+        <div class="faq-answer"><p>Yes. Participants who complete the program receive an official certificate of completion and access to a network of professionals.</p></div>
       </div>
 
       <div class="faq-item">
@@ -636,7 +662,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">05</span>
           <span class="faq-question-text">Who is this masterclass designed for?</span>
         </button>
-        <div class="faq-answer"><p>Beginners, entrepreneurs, realtors, investors, consultants, and career changers who want a clear path into real estate sectors and a practical way to raise capital — across US, UK, Middle East, and African markets.</p></div>
+        <div class="faq-answer"><p>Beginners, entrepreneurs, realtors, investors, consultants, and career changers who want a clear path into 12 advanced real estate categories and a practical way to raise capital — across US, UK, Middle East, and African markets.</p></div>
       </div>
 
       <div class="faq-item">
@@ -644,7 +670,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">06</span>
           <span class="faq-question-text">How do I enroll — Naira or USD?</span>
         </button>
-        <div class="faq-answer"><p><strong>In Nigeria:</strong> pay <strong>₦1,500,000</strong> via <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Paystack</a> — Nigerian debit cards work. <strong>Abroad:</strong> use Stripe for <strong>$1,000 USD</strong> with code <strong>RBM500</strong>. Same programme either way. If a USD card declines, stay on this page and switch to the Naira option.</p></div>
+        <div class="faq-answer"><p><strong>In Nigeria:</strong> pay <strong>₦2,300,000</strong> (from ₦4,000,000) via <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Paystack</a> — Nigerian debit cards work. <strong>Abroad:</strong> use Stripe for <strong>$1,000 USD</strong> (from $3,000). Same programme either way. If a USD card declines, stay on this page and switch to the Naira option.</p></div>
       </div>
 
       <div class="faq-item">
@@ -652,7 +678,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">07</span>
           <span class="faq-question-text">Why are there two different prices?</span>
         </button>
-        <div class="faq-answer"><p>Because one dollar price fails both markets. A Lagos aspiring realtor often cannot clear $1,000 on a local card; a diaspora professional earning in USD/GBP/AED is not priced the same as a domestic NGN earner. The Naira tier is a fixed <strong>₦1,500,000</strong> (not live FX). The USD tier is <strong>$1,500</strong>, or <strong>$1,000</strong> with coupon <strong>RBM500</strong> — framed as protection against one costly mistake on money sent home for land, not as an income promise.</p></div>
+        <div class="faq-answer"><p>Because one dollar price fails both markets. A Lagos aspiring realtor often cannot clear $1,000 on a local card; a diaspora professional earning in USD/GBP/AED is not priced the same as a domestic NGN earner. The Naira tier is <strong>₦4,000,000</strong>, now <strong>₦2,300,000</strong> (not live FX). The USD tier is <strong>$3,000</strong>, now <strong>$1,000</strong> — framed as protection against one costly mistake on money sent home for land, not as an income promise.</p></div>
       </div>
 
       <div class="faq-item">
@@ -660,7 +686,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="faq-num">08</span>
           <span class="faq-question-text">What time are the sessions in my timezone?</span>
         </button>
-        <div class="faq-answer"><p>Sessions start at <strong>5:00 PM WAT</strong>. Equivalents: UK (BST) 5:00 PM · Nigeria (WAT) 5:00 PM · UAE (GST) 8:00 PM · Saudi Arabia (AST) 7:00 PM · USA Texas (CDT) 11:00 AM · USA New York (EDT) 12:00 PM · USA Los Angeles (PDT) 9:00 AM.</p></div>
+        <div class="faq-answer"><p>Sessions start at <strong>5:00 PM WAT / 12:00 PM EDT</strong>. Equivalents: UK (BST) 5:00 PM · Nigeria (WAT) 5:00 PM · UAE (GST) 8:00 PM · Saudi Arabia (AST) 7:00 PM · USA Texas (CDT) 11:00 AM · USA New York (EDT) 12:00 PM · USA Los Angeles (PDT) 9:00 AM.</p></div>
       </div>
     </div>
   </div>
@@ -675,22 +701,22 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="cta-content">
         <span class="cta-badge">
           <span class="cta-badge-dot" aria-hidden="true"></span>
-          RBM 3.0 · Nov 21 – Dec 19
+          GRBM 3.0 · Nov 21 – Dec 19
         </span>
-        <h2 class="cta-title">Your Map Into Real Estate Starts This November</h2>
+        <h2 class="cta-title">Your Map Into Global Real Estate Starts This November</h2>
         <div class="hero-accent-bar cta-accent-bar" aria-hidden="true"></div>
-        <p class="cta-desc">Join the next live RBM cohort with <strong>Dr. Stephen Akintayo</strong>. Nigeria buyers: <strong>₦1,500,000</strong> on Paystack. Diaspora: <strong>$1,000 USD</strong> with code <strong>RBM500</strong> (from $1,500) on Stripe. Same programme — backed by a Week 1 satisfaction guarantee.</p>
+        <p class="cta-desc">Join the next live GRBM 3.0 cohort with <strong>Dr. Stephen Akintayo</strong>. Nigeria buyers: <strong>₦2,300,000</strong> (from ₦4,000,000) on Paystack. Diaspora: <strong>$1,000 USD</strong> (from $3,000) on Stripe. Same programme — backed by a Week 1 satisfaction guarantee.</p>
 
         <div class="cta-actions">
           <a class="btn cta-btn" href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">
-            Pay ₦1,500,000 (Paystack)
+            Pay ₦2,300,000 (Paystack)
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" data-usd-checkout target="_blank" rel="noopener noreferrer">
+          <a class="cta-btn-naira" href="https://buy.stripe.com/3cIbJ29B23vpaoSgfGew80U" data-usd-checkout target="_blank" rel="noopener noreferrer">
             Pay in USD — $1,000
           </a>
         </div>
-        <p class="cta-payment-note">Card won’t clear USD? Pay ₦1,500,000 via Paystack. The RBM 3.0 cohort starts 21 November and runs through 19 December.</p>
+        <p class="cta-payment-note">Card won’t clear USD? Pay ₦2,300,000 (from ₦4,000,000) via Paystack. The GRBM 3.0 cohort starts 21 November and runs through 19 December.</p>
 
         <p class="cta-contact-line">Questions? Email <a href="mailto:products@stephenakintayo.com">products@stephenakintayo.com</a> or call <a href="tel:+2348167901719">+234 816 790 1719</a> · <a href="tel:+12815050527">+1 (281) 505-0527</a></p>
       </div>
@@ -704,8 +730,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
 
     <!-- Brand col -->
     <div class="footer-col footer-brand-col">
-      <span class="footer-logo">RBM</span>
-      <p class="footer-tagline">Real Estate Business Masterclass — a structured 5‑week virtual program by Dr. Stephen Akintayo.</p>
+      <span class="footer-logo">GRBM</span>
+      <p class="footer-tagline">Global Real Estate Business Masterclass (GRBM) 3.0 — a 5‑week intensive virtual program by Dr. Stephen Akintayo.</p>
       <p class="footer-attribution">Brought to you by <strong>Stephen Akintayo Foundation</strong></p>
     </div>
 
@@ -749,8 +775,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 Real Estate Business Masterclass. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a></p>
-    <p>A program by <strong>Dr. Stephen Akintayo</strong> · SACI Holdings</p>
+    <p>&copy; 2026 Global Real Estate Business Masterclass (GRBM). All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a></p>
+    <p>A program by <strong>Dr. Stephen Akintayo</strong> · SACI Holdings USA</p>
   </div>
 </footer>
 
@@ -767,7 +793,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></path></svg>
       </div>
       <h2 class="modal-title" id="modalTitle">Questions Before You Enroll?</h2>
-      <p class="modal-subtitle">Leave your details and we’ll call you back. Ready to join now? <a href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" target="_blank" rel="noopener noreferrer">Pay in USD ($1,000 with RBM500)</a> or <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦1,500,000</a>.</p>
+      <p class="modal-subtitle">Leave your details and we’ll call you back. Ready to join now? <a href="https://buy.stripe.com/3cIbJ29B23vpaoSgfGew80U" target="_blank" rel="noopener noreferrer">Pay in USD ($1,000 from $3,000)</a> or <a href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦2,300,000 (from ₦4,000,000)</a>.</p>
 
       <form class="register-form" id="registerForm" action="https://formspree.io/f/xlgpoevp" method="POST" novalidate>
         <div class="form-row">
@@ -815,7 +841,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <span class="submit-spinner" aria-hidden="true"></span>
         </button>
 
-        <p class="form-note">By submitting, you agree to be contacted about RBM and to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <p class="form-note">By submitting, you agree to be contacted about GRBM and to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
       </form>
     </div>
 
@@ -827,8 +853,8 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <h2 class="modal-title">Got It — We’ll Be in Touch</h2>
       <p class="modal-subtitle">Thanks. Our team will reach out shortly. If you’re ready now, you can still enroll instantly.</p>
       <div class="modal-enroll-actions" style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.65rem;width:100%;max-width:320px">
-        <a class="btn cta-btn" href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦1,500,000 (Paystack)</a>
-        <a class="cta-btn-naira" href="https://buy.stripe.com/14AdRa4gI5DxdB4fbCew80b?prefilled_promo_code=RBM500" data-usd-checkout target="_blank" rel="noopener noreferrer">Pay in USD — $1,000</a>
+        <a class="btn cta-btn" href="https://paystack.shop/pay/tf4ym256c0" target="_blank" rel="noopener noreferrer">Pay ₦2,300,000 (Paystack)</a>
+        <a class="cta-btn-naira" href="https://buy.stripe.com/3cIbJ29B23vpaoSgfGew80U" data-usd-checkout target="_blank" rel="noopener noreferrer">Pay in USD — $1,000</a>
         <button class="cta-btn-secondary" id="modalSuccessClose">Close</button>
       </div>
     </div>
