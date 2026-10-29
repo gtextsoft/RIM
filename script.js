@@ -260,6 +260,35 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
   });
 }());
 
+/* Require agreement to the terms before any ticket checkout can open. */
+(function () {
+  var checkbox = document.getElementById('acceptTerms');
+  var note = document.getElementById('checkoutConsentNote');
+  var payLinks = document.querySelectorAll('.checkout-pay-btn[data-checkout-url]');
+  if (!checkbox || !payLinks.length) return;
+
+  function syncCheckoutAccess() {
+    var accepted = checkbox.checked;
+    payLinks.forEach(function (link) {
+      link.href = accepted ? link.getAttribute('data-checkout-url') : '#checkoutTerms';
+      link.setAttribute('aria-disabled', accepted ? 'false' : 'true');
+      link.tabIndex = accepted ? 0 : -1;
+    });
+    if (note) note.hidden = accepted;
+  }
+
+  payLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      if (!checkbox.checked) {
+        event.preventDefault();
+        checkbox.focus();
+      }
+    });
+  });
+  checkbox.addEventListener('change', syncCheckoutAccess);
+  syncCheckoutAccess();
+}());
+
 /* USD checkout → on-page Naira fallback (failed / declined international cards) */
 (function () {
   var fallback = document.getElementById('paymentFallback');
