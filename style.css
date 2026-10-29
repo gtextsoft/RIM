@@ -1825,6 +1825,29 @@ p {
   width: 100%;
 }
 
+.tier-card .checkout-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 1rem 0 0.85rem;
+  color: #555;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.tier-card .checkout-consent input {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--color-accent);
+}
+
+.tier-card .checkout-pay-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .pricing-btn--usd {
   background: #111;
   color: #fff;

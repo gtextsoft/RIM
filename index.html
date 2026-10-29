@@ -500,12 +500,6 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <p><strong>Why the prices differ:</strong> The Naira tier is <strong>₦3,600,000</strong>, now <strong>₦1,300,000</strong> for domestic purchasing power — aspiring realtors and operators earning in NGN. The USD tier is <strong>$3,000</strong>, now <strong>$1,500</strong> for diaspora professionals earning in USD, GBP, or AED. It is not a live FX conversion. The gap exists because a single dollar price either locks out Lagos buyers or underprices diaspora buyers who are sending money home into land deals.</p>
     </div>
 
-    <div class="checkout-consent" id="checkoutTerms">
-      <input type="checkbox" id="acceptTerms">
-      <label for="acceptTerms">I have read and agree to the <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>.</label>
-      <p class="checkout-consent-note" id="checkoutConsentNote">Agree to the Terms &amp; Conditions to enable the payment buttons.</p>
-    </div>
-
     <div class="pricing-tiers" id="checkoutTiers">
 
       <article class="tier-card tier-card--primary" id="tier-ngn">
@@ -529,7 +523,11 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <li>Templates, capital-raise playbook, recordings, certificate</li>
           <li>Final sale; no refunds except where required by law</li>
         </ul>
-        <a href="#checkoutTerms" data-checkout-url="https://paystack.shop/pay/tf4ym256c0" class="pricing-btn pricing-btn--accent checkout-pay-btn" id="nairaEnrollBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
+        <div class="checkout-consent">
+          <input type="checkbox" id="acceptNairaTerms">
+          <label for="acceptNairaTerms">I agree to the <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>.</label>
+        </div>
+        <a href="#acceptNairaTerms" data-checkout-url="https://paystack.shop/pay/tf4ym256c0" data-consent-checkbox="acceptNairaTerms" class="pricing-btn pricing-btn--accent checkout-pay-btn" id="nairaEnrollBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
           Pay ₦1,300,000 (Paystack)
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
@@ -558,7 +556,11 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
           <li>Templates, capital-raise playbook, recordings, certificate</li>
           <li>Final sale; no refunds except where required by law</li>
         </ul>
-        <a href="#checkoutTerms" data-checkout-url="https://buy.stripe.com/28E8wQ3cEgibgNgbZqew80W?prefilled_promo_code=RBM500" class="pricing-btn pricing-btn--usd checkout-pay-btn" id="primaryEnrollBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
+        <div class="checkout-consent">
+          <input type="checkbox" id="acceptUsdTerms">
+          <label for="acceptUsdTerms">I agree to the <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>.</label>
+        </div>
+        <a href="#acceptUsdTerms" data-checkout-url="https://buy.stripe.com/28E8wQ3cEgibgNgbZqew80W?prefilled_promo_code=RBM500" data-consent-checkbox="acceptUsdTerms" class="pricing-btn pricing-btn--usd checkout-pay-btn" id="primaryEnrollBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
           Pay in USD — $1,500
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
@@ -571,7 +573,7 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="payment-fallback-inner">
         <h3 class="payment-fallback-title">Card declined or won’t clear $1,500?</h3>
         <p class="payment-fallback-copy">Most Nigerian debit cards cannot process an international USD charge. You do not need to leave this page — switch to the ₦2,300,000 Naira checkout below.</p>
-        <a href="#checkoutTerms" data-checkout-url="https://paystack.shop/pay/tf4ym256c0" class="pricing-btn pricing-btn--accent checkout-pay-btn" id="fallbackNairaBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
+        <a href="#acceptNairaTerms" data-checkout-url="https://paystack.shop/pay/tf4ym256c0" data-consent-checkbox="acceptNairaTerms" class="pricing-btn pricing-btn--accent checkout-pay-btn" id="fallbackNairaBtn" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener noreferrer">
           Continue with ₦2,300,000 (Paystack)
         </a>
         <button type="button" class="text-link-btn payment-fallback-dismiss" id="paymentFallbackDismiss">Keep trying USD</button>
@@ -599,9 +601,6 @@ src="https://www.facebook.com/tr?id=911916404501115&ev=PageView&noscript=1"
       <div class="pricing-trust-item">
         <span class="pricing-trust-icon" aria-hidden="true">🏁</span>
         <div>
-        <strong>Register online</strong>
-          <span>stephenakintayo.com/rbm</span>
-        </div>
       </div>
       <div class="pricing-trust-item">
         <span class="pricing-trust-icon" aria-hidden="true">🇳🇬</span>
