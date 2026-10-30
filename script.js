@@ -62,7 +62,7 @@ links.forEach(function (link) {
 });
 
 /* Scroll spy: set active nav link based on visible section */
-const sectionIds = ['home', 'program', 'learn', 'contact'];
+const sectionIds = ['home', 'program', 'learn', 'instructor', 'pricing', 'faq'];
 const sectionEls = sectionIds
   .map(function (id) {
     return document.getElementById(id);
@@ -300,7 +300,9 @@ document.querySelectorAll('.btn-particle').forEach(function (btn) {
 
   document.querySelectorAll('[data-usd-checkout]').forEach(function (link) {
     link.addEventListener('click', function () {
-      // Stripe opens in a new tab; keep this page and surface Naira recovery
+      // Only once consent unlocked checkout; Stripe opens in a new tab
+      if (link.getAttribute('aria-disabled') === 'true') return;
+      // keep this page and surface Naira recovery
       setTimeout(showFallback, 400);
     });
   });
